@@ -49,6 +49,11 @@ var prettyPrint = (function(){
 			/* Create new element */
 			var el = document.createElement(type), attr;
 			
+			/* Add ClassName for CSS support */
+			if (type == 'table') {
+				el.className = 'pretty_print';
+			}
+			
 			/*Copy to single object */
 			attrs = util.merge({}, attrs);
 			
@@ -111,6 +116,9 @@ var prettyPrint = (function(){
 						});
 					}
 				};
+				
+			/* Add ClassName for CSS support */
+			tr.className = type + "_" + cellType;
 				
 			util.forEach(cells, function(cell){
 				
@@ -767,6 +775,28 @@ var prettyPrint = (function(){
 					backgroundRepeat: 'repeat-x'
 				}
 			}
+		}
+	};
+	/* CSS configuration */
+	
+	/* Write this configuration as default to turn off element styling when want to use CSS.
+	   For example: prettyPrint.config = prettyPrint.css_config */
+	prettyPrintThis.css_config = {
+		expanded: true,
+		forceObject: false,
+		maxDepth: 3,
+		maxArray: -1,  // default is unlimited
+		styles: {
+			array: { },
+			'function': { },
+			regexp: { },
+			object: { },
+			jquery : { },
+			error: { },
+			domelement: { },
+			date: { },
+			colHeader: { },
+			'default': { table: {}, td: {}, td_hover: {}, th:{} }
 		}
 	};
 	

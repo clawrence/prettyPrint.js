@@ -55,5 +55,14 @@ Custom settings can be passed (as an object) as the second argument to the prett
 		maxDepth: 5 // Max member depth (when displaying objects) (default: 3)
 	})
 
+To use CSS style sheets (disable element styling):
+
+	prettyPrint.config = prettyPrint.css_config;
+
+The following classes will then be available for styling:
+	pretty_print for the table
+	array_th, colHeader_th, object_th, etc. to custom style header types as desired
+
+
 tip: Scroll to line ~679 of prettyprint.js for more configuration options.
 
